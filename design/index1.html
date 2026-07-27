@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edin Causevic · Udemy Courses</title>
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<style>
+    :root {
+        --purple: #6d3df5;
+        --purple-dark: #5425d8;
+        --purple-light: #f2efff;
+
+        --text: #17171a;
+        --muted: #686b73;
+        --border: #e9e9ef;
+
+        --page: #f5f6fa;
+        --card: #ffffff;
+
+        --shadow-lg:
+            0 32px 80px rgba(28, 20, 65, 0.08),
+            0 8px 24px rgba(28, 20, 65, 0.04);
+
+        --shadow-card:
+            0 10px 30px rgba(28, 20, 65, 0.055);
+
+        --radius-xl: 32px;
+        --radius-lg: 22px;
+        --radius-md: 16px;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        min-height: 100vh;
+        padding: 32px 20px;
+        font-family: 'Inter', sans-serif;
+        color: var(--text);
+        background:
+            radial-gradient(
+                circle at 50% -20%,
+                rgba(109, 61, 245, 0.08),
+                transparent 42%
+            ),
+            var(--page);
+    }
+
+    .promo-card {
+        width: min(1280px, 100%);
+        margin: 0 auto;
+        padding: 30px;
+        background: rgba(255, 255, 255, 0.92);
+        border: 1px solid rgba(255, 255, 255, 0.9);
+        border-radius: var(--radius-xl);
+        box-shadow: var(--shadow-lg);
+    }
+
+    /* HEADER */
+
+    .header-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        margin-bottom: 32px;
+    }
+
+    .profile-area {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+    }
+
+    .avatar {
+        width: 58px;
+        height: 58px;
+        flex: 0 0 58px;
+        border-radius: 50%;
+        background:
+            url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face')
+            center / cover;
+        border: 3px solid #fff;
+        box-shadow:
+            0 0 0 1px #e2e2ea,
+            0 8px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .name-title h2 {
+        font-size: 1.45rem;
+        line-height: 1.2;
+        font-weight: 800;
+        letter-spacing: -0.04em;
+    }
+
+    .badge-instructor {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        margin-top: 5px;
+        padding: 5px 10px;
+        color: var(--muted);
+        background: #f5f5f8;
+        border: 1px solid #ededf2;
+        border-radius: 999px;
+        font-size: 0.72rem;
+        font-weight: 600;
+    }
+
+    .badge-instructor i {
+        color: var(--purple);
+    }
+
+    .nav-menu {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        padding: 5px;
+        background: #f7f7fa;
+        border: 1px solid var(--border);
+        border-radius: 999px;
+    }
+
+    .nav-menu a {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        padding: 10px 14px;
+        color: var(--muted);
+        text-decoration: none;
+        border-radius: 999px;
+        font-size: 0.82rem;
+        font-weight: 600;
+        transition: 0.2s ease;
+    }
+
+    .nav-menu a i {
+        font-size: 0.78rem;
+    }
+
+    .nav-menu a:hover {
+        color: var(--text);
+        background: #fff;
+    }
+
+    .nav-menu a.active {
+        color: var(--purple);
+        background: #fff;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .nav-menu a.udemy-profile {
+        color: #fff;
+        background: var(--purple);
+        padding-inline: 16px;
+        box-shadow: 0 6px 16px rgba(109, 61, 245, 0.2);
+    }
+
+    .nav-menu a.udemy-profile:hover {
+        color: #fff;
+        background: var(--purple-dark);
+    }
+
+    /* UDEMY BAR */
+
+    .udemy-badge-bar {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        width: fit-content;
+        max-width: 100%;
+        margin: 0 auto 34px;
+        padding: 10px 18px;
+        color: var(--muted);
+        background: #fafaff;
+        border: 1px solid #e9e6ff;
+        border-radius: 999px;
+        font-size: 0.8rem;
+    }
+
+    .udemy-badge-bar > i:first-child {
+        color: var(--purple);
+        font-size: 1.4rem;
+    }
+
+    .udemy-badge-bar .highlight {
+        color: var(--purple);
+        font-weight: 800;
+    }
+
+    .udemy-badge-bar .arrow {
+        color: var(--purple);
+        font-size: 0.75rem;
+    }
+
+    /* TAGLINE */
+
+    .tagline {
+        margin-bottom: 34px;
+        text-align: center;
+    }
+
+    .tagline h3 {
+        font-size: clamp(1.7rem, 3vw, 2.35rem);
+        line-height: 1.15;
+        font-weight: 800;
+        letter-spacing: -0.055em;
+    }
+
+    .tagline h3 span {
+        color: var(--purple);
+    }
+
+    .tagline p {
+        margin-top: 10px;
+        color: var(--muted);
+        font-size: 0.95rem;
+    }
+
+    /* COURSE GRID */
+
+    .courses-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+        max-width: 1120px;
+        margin: 0 auto 34px;
+    }
+
+    .course-card {
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow-card);
+        transition:
+            transform 0.25s ease,
+            box-shadow 0.25s ease,
+            border-color 0.25s ease;
+    }
+
+    .course-card:hover {
+        transform: translateY(-6px);
+        border-color: #d9d1ff;
+        box-shadow:
+            0 22px 45px rgba(46, 27, 112, 0.11),
+            0 8px 20px rgba(0, 0, 0, 0.04);
+    }
+
+    .course-img-wrapper {
+        position: relative;
+        height: 168px;
+        overflow: hidden;
+        background: #e8e8ee;
+    }
+
+    .course-img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+    }
+
+    .course-card:hover .course-img {
+        transform: scale(1.045);
+    }
+
+    .course-img-wrapper::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.12),
+            transparent 45%,
+            rgba(0, 0, 0, 0.18)
+        );
+        pointer-events: none;
+    }
+
+    .img-badge {
+        position: absolute;
+        z-index: 1;
+        top: 12px;
+        left: 12px;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 6px 10px;
+        color: #fff;
+        background: rgba(15, 15, 20, 0.72);
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        border-radius: 999px;
+        backdrop-filter: blur(10px);
+        font-size: 0.63rem;
+        font-weight: 800;
+        letter-spacing: 0.4px;
+    }
+
+    .img-badge i {
+        color: #ffd76a;
+        font-size: 0.6rem;
+    }
+
+    .course-content {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .course-title {
+        margin-bottom: 7px;
+        font-size: 1.08rem;
+        font-weight: 800;
+        letter-spacing: -0.035em;
+    }
+
+    .course-description {
+        min-height: 42px;
+        margin-bottom: 15px;
+        color: var(--muted);
+        font-size: 0.8rem;
+        line-height: 1.55;
+    }
+
+    .course-details {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-bottom: 16px;
+    }
+
+    .detail-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        padding: 5px 8px;
+        color: #656873;
+        background: #f7f7fa;
+        border: 1px solid #ececf1;
+        border-radius: 7px;
+        font-size: 0.62rem;
+        font-weight: 600;
+    }
+
+    .detail-badge i {
+        color: var(--purple);
+        font-size: 0.6rem;
+    }
+
+    .course-meta {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+    }
+
+    .stars {
+        display: flex;
+        gap: 2px;
+        color: #f4b740;
+        font-size: 0.85rem;
+    }
+
+    .rating-text {
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        padding: 5px 8px;
+        color: #555861;
+        background: #f7f7fa;
+        border-radius: 7px;
+        font-size: 0.68rem;
+        font-weight: 600;
+    }
+
+    .rating-text i {
+        color: var(--purple);
+    }
+
+    .price-btn-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin-top: 18px;
+        padding-top: 16px;
+        border-top: 1px solid #eeeeF2;
+    }
+
+    .price {
+        font-size: 1.1rem;
+        font-weight: 800;
+        letter-spacing: -0.03em;
+    }
+
+    .btn-udemy {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        min-height: 40px;
+        padding: 0 15px;
+        color: #fff;
+        background: var(--purple);
+        border-radius: 10px;
+        font-size: 0.75rem;
+        font-weight: 700;
+        white-space: nowrap;
+        transition: 0.2s ease;
+    }
+
+    .btn-udemy:hover {
+        background: var(--purple-dark);
+        transform: translateY(-1px);
+        box-shadow: 0 7px 15px rgba(109, 61, 245, 0.2);
+    }
+
+    .btn-udemy i {
+        color: #dcd2ff;
+    }
+
+    /* FOOTER */
+
+    .promo-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        padding-top: 24px;
+        border-top: 1px solid var(--border);
+    }
+
+    .footer-left {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .footer-left span {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        padding: 8px 11px;
+        color: var(--muted);
+        background: #fafafa;
+        border: 1px solid #eeeeF2;
+        border-radius: 9px;
+        font-size: 0.72rem;
+        font-weight: 600;
+    }
+
+    .footer-left i {
+        color: var(--purple);
+    }
+
+    .footer-right {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        color: var(--muted);
+        font-size: 0.8rem;
+        white-space: nowrap;
+    }
+
+    .footer-right .star {
+        color: #f4b740;
+    }
+
+    .footer-right strong {
+        color: var(--text);
+    }
+
+    .footer-right .arrow {
+        color: var(--purple);
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 1000px) {
+        .header-row {
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+        .profile-area {
+            justify-content: center;
+        }
+
+        .nav-menu {
+            justify-content: center;
+            flex-wrap: wrap;
+            border-radius: 18px;
+        }
+
+        .courses-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 680px) {
+        body {
+            padding: 14px;
+        }
+
+        .promo-card {
+            padding: 20px 14px;
+            border-radius: 24px;
+        }
+
+        .courses-grid {
+            grid-template-columns: 1fr;
+            max-width: 430px;
+        }
+
+        .nav-menu {
+            gap: 2px;
+        }
+
+        .nav-menu a {
+            padding: 9px 10px;
+            font-size: 0.73rem;
+        }
+
+        .udemy-badge-bar {
+            flex-wrap: wrap;
+            text-align: center;
+            border-radius: 18px;
+        }
+
+        .promo-footer {
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+        .footer-right {
+            justify-content: center;
+        }
+
+        .course-img-wrapper {
+            height: 155px;
+        }
+    }
+
+    @media (max-width: 420px) {
+        .profile-area {
+            justify-content: flex-start;
+        }
+
+        .name-title h2 {
+            font-size: 1.25rem;
+        }
+
+        .price-btn-row {
+            align-items: stretch;
+            flex-direction: column;
+        }
+
+        .btn-udemy {
+            width: 100%;
+        }
+
+        .price {
+            text-align: center;
+        }
+    }
+</style>
+
+
+</head>
+
+<body>
+    <div class="promo-card">
+
+
+    <!-- HEADER -->
+    <div class="header-row">
+        <div class="profile-area">
+            <div
+                class="avatar"
+                role="img"
+                aria-label="Edin Causevic profile photo">
+            </div>
+
+            <div class="name-title">
+                <h2>Edin Causevic</h2>
+
+                <span class="badge-instructor">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    Instructor
+                </span>
+            </div>
+        </div>
+
+        <div class="nav-menu">
+            <a href="#" class="active">
+                <i class="fas fa-home"></i>
+                Home
+            </a>
+
+            <a href="#">
+                <i class="fas fa-th-list"></i>
+                All Courses
+            </a>
+
+            <a href="#">
+                <i class="fas fa-user"></i>
+                About
+            </a>
+
+            <a href="#" class="udemy-profile">
+                <i class="fas fa-external-link-alt"></i>
+                My Udemy Profile
+            </a>
+        </div>
+    </div>
+
+    <!-- UDEMY BADGE -->
+    <div class="udemy-badge-bar">
+        <i class="fab fa-udemy"></i>
+
+        <span>
+            <span class="highlight">Udemy</span>
+            · courses hosted on Udemy
+        </span>
+
+        <i class="fas fa-arrow-right arrow"></i>
+
+        <span>trusted platform</span>
+    </div>
+
+    <!-- TAGLINE -->
+    <div class="tagline">
+        <h3>
+            Build high-impact skills
+            <span>·</span>
+            6 expert courses
+        </h3>
+
+        <p>
+            Modern, project-based learning · from beginner to pro
+        </p>
+    </div>
+
+    <!-- COURSES -->
+    <div class="courses-grid">
+
+        <!-- COURSE 1 -->
+        <div class="course-card">
+            <div class="course-img-wrapper">
+                <img
+                    class="course-img"
+                    src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&h=400&fit=crop&crop=center"
+                    alt="Full-Stack Web Dev"
+                    loading="lazy">
+
+                <span class="img-badge">
+                    <i class="fas fa-star"></i>
+                    BESTSELLER
+                </span>
+            </div>
+
+            <div class="course-content">
+                <h4 class="course-title">Full-Stack Web Dev</h4>
+
+                <p class="course-description">
+                    React, Node, MongoDB · build real projects with modern JavaScript.
+                </p>
+
+                <div class="course-details">
+                    <span class="detail-badge">
+                        <i class="fas fa-clock"></i>
+                        12.5 total hours
+                    </span>
+
+                    <span class="detail-badge">
+                        <i class="fas fa-film"></i>
+                        142 lectures
+                    </span>
+
+                    <span class="detail-badge">
+                        <i class="fas fa-signal"></i>
+                        All Levels
+                    </span>
+                </div>
+
+                <div class="course-meta">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+
+                    <span class="rating-text">
+                        <i class="fas fa-users"></i>
+                        5.0 (2.1k+)
+                    </span>
+                </div>
+
+                <div class="price-btn-row">
+                    <span class="price">$49.99</span>
+
+                    <span class="btn-udemy">
+                        <i class="fas fa-gift"></i>
+                        Get Discount
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- COURSE 2 -->
+        <div class="course-card">
+            <div class="course-img-wrapper">
+                <img
+                    class="course-img"
+                    src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop&crop=center"
+                    alt="Data Science & AI"
+                    loading="lazy">
+
+                <span class="img-badge">
+                    <i class="fas fa-crown"></i>
+                    BESTSELLER
+                </span>
+            </div>
+
+            <div class="course-content">
+                <h4 class="course-title">Data Science & AI</h4>
+
+                <p class="course-description">
+                    Python, Pandas, ML, TensorFlow · from zero to production.
+                </p>
+
+                <div class="course-details">
+                    <span class="detail-badge">
+                        <i class="fas fa-clock"></i>
+                        18.5 total hours
+                    </span>
+
+                    <span class="detail-badge">
+                        <i class="fas fa-film"></i>
+                        186 lectures
+                    </span>
+
+                    <span class="detail-badge">
+                        <i class="fas fa-signal"></i>
+                        All Levels
+                    </span>
+                </div>
+
+                <div class="course-meta">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+
+                    <span class="rating-text">
+                        <i class="fas fa-users"></i>
+                        4.5 (3.8k+)
+                    </span>
+                </div>
+
+                <div class="price-btn-row">
+                    <span class="price">$59.99</span>
+
+                    <span class="btn-udemy">
+                        <i class="fas fa-gift"></i>
+                        Get Discount
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- COURSE 3 -->
+        <div class="course-card">
+            <div class="course-img-wrapper">
+                <img
+                    class="course-img"
+                    src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=400&fit=crop&crop=center"
+                    alt="UI/UX Design Pro"
+                    loading="lazy">
+
+                <span class="img-badge">
+                    <i class="fas fa-fire"></i>
+                    HOT
+                </span>
+            </div>
+
+            <div class="course-content">
+                <h4 class="course-title">UI/UX Design Pro</h4>
+
+                <p class="course-description">
+                    Figma, prototyping, design systems · user-centric workflow.
+                </p>
+
+                <div class="course-details">
+                    <span class="detail-badge">
+                        <i class="fas fa-clock"></i>
+                        14.0 total hours
+                    </span>
+
+                    <span class="detail-badge">
+                        <i class="fas fa-film"></i>
+                        165 lectures
+                    </span>
+
+                    <span class="detail-badge">
+                        <i class="fas fa-signal"></i>
+                        All Levels
+                    </span>
+                </div>
+
+                <div class="course-meta">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+
+                    <span class="rating-text">
+                        <i class="fas fa-users"></i>
+                        4.0 (1.9k+)
+                    </span>
+                </div>
+
+                <div class="price-btn-row">
+                    <span class="price">$44.99</span>
+
+                    <span class="btn-udemy">
+                        <i class="fas fa-gift"></i>
+                        Get Discount
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- COURSE 4 -->
+        <div class="course-card">
+            <div class="course-img-wrapper">
+                <img
+                    class="course-img"
+                    src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&h=400&fit=crop&crop=center"
+                    alt="DevOps Mastery"
+                    loading="lazy">
+
+                <span class="img-badge">
+                    <i class="fas fa-rocket"></i>
+                    NEW
+                </span>
+            </div>
+
+            <div class="course-content">
+                <h4 class="course-title">DevOps Mastery</h4>
+
+                <p class="course-description">
+                    Docker, Kubernetes, CI/CD · automate and scale like a pro.
+                </p>
+
+                <div class="course-details">
+                    <span class="detail-badge">
+                        <i class="fas fa-clock"></i>
+                        16.0 total hours
+                    </span>
+
+                    <span class="detail-badge">
+                        <i class="fas fa-film"></i>
+                        158 lectures
+                    </span>
+
+                    <span class="detail-badge">
+                        <i class="fas fa-signal"></i>
+                        Advanced
+                    </span>
+                </div>
+
+                <div class="course-meta">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+
+                    <span class="rating-text">
+                        <i class="fas fa-users"></i>
+                        5.0 (1.2k+)
+                    </span>
+                </div>
+
+                <div class="price-btn-row">
+                    <span class="price">$54.99</span>
+
+                    <span class="btn-udemy">
+                        <i class="fas fa-gift"></i>
+                        Get Discount
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- COURSE 5 -->
+        <div class="course-card">
+            <div class="course-img-wrapper">
+                <img
+                    class="course-img"
+                    src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=600&h=400&fit=crop&crop=center"
+                    alt="Cloud Architecture"
+                    loading="lazy">
+
+                <span class="img-badge">
+                    <i class="fas fa-cloud"></i>
+                    POPULAR
+                </span>
+            </div>
+
+            <div class="course-content">
+                <h4 class="course-title">Cloud Architecture</h4>
+
+                <p class="course-description">
+                    AWS, Azure, GCP · design scalable cloud solutions.
+                </p>
+
+                <div class="course-details">
+                    <span class="detail-badge">
+                        <i class="fas fa-clock"></i>
+                        15.5 total hours
+                    </span>
+
+                    <span class="detail-badge">
+                        <i class="fas fa-film"></i>
+                        172 lectures
+                    </span>
+
+                    <span class="detail-badge">
+                        <i class="fas fa-signal"></i>
+                        All Levels
+                    </span>
+                </div>
+
+                <div class="course-meta">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+
+                    <span class="rating-text">
+                        <i class="fas fa-users"></i>
+                        4.5 (2.5k+)
+                    </span>
+                </div>
+
+                <div class="price-btn-row">
+                    <span class="price">$64.99</span>
+
+                    <span class="btn-udemy">
+                        <i class="fas fa-gift"></i>
+                        Get Discount
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- COURSE 6 -->
+        <div class="course-card">
+            <div class="course-img-wrapper">
+                <img
+                    class="course-img"
+                    src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=400&fit=crop&crop=center"
+                    alt="Cybersecurity"
+                    loading="lazy">
+
+                <span class="img-badge">
+                    <i class="fas fa-shield-alt"></i>
+                    NEW
+                </span>
+            </div>
+
+            <div class="course-content">
+                <h4 class="course-title">Cybersecurity</h4>
+
+                <p class="course-description">
+                    Network security, ethical hacking, compliance · protect systems.
+                </p>
+
+                <div class="course-details">
+                    <span class="detail-badge">
+                        <i class="fas fa-clock"></i>
+                        13.5 total hours
+                    </span>
+
+                    <span class="detail-badge">
+                        <i class="fas fa-film"></i>
+                        149 lectures
+                    </span>
+
+                    <span class="detail-badge">
+                        <i class="fas fa-signal"></i>
+                        Intermediate
+                    </span>
+                </div>
+
+                <div class="course-meta">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+
+                    <span class="rating-text">
+                        <i class="fas fa-users"></i>
+                        4.0 (1.6k+)
+                    </span>
+                </div>
+
+                <div class="price-btn-row">
+                    <span class="price">$49.99</span>
+
+                    <span class="btn-udemy">
+                        <i class="fas fa-gift"></i>
+                        Get Discount
+                    </span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <div class="promo-footer">
+        <div class="footer-left">
+            <span>
+                <i class="fas fa-check-circle"></i>
+                30-day money-back
+            </span>
+
+            <span>
+                <i class="fas fa-clock"></i>
+                Lifetime access
+            </span>
+
+            <span>
+                <i class="fas fa-certificate"></i>
+                Certificate
+            </span>
+        </div>
+
+        <div class="footer-right">
+            <i class="fas fa-star star"></i>
+            <span>
+                <strong>4.6</strong>
+                avg rating · 18k+ students
+            </span>
+            <i class="fas fa-arrow-right arrow"></i>
+        </div>
+    </div>
+
+</div>
+
+
+</body>
+</html>
